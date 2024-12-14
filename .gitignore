@@ -1,0 +1,11 @@
+Memo.md
+
+.env
+
+# terraform
+
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+*.tfplan

@@ -1,0 +1,17 @@
+services:
+  terraform:
+    container_name: 'terraform'
+    image: local/terraform
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+        AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    volumes:
+     - ./src:/root/src
+    entrypoint: sh
+    tty: true
